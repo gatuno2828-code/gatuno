@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "General Sans";
+    --font-body: "General Sans";
+    --font-mono: "JetBrains Mono";
+    --radius: 0.625rem;
+
+    --background: 0.99 0 0;
+    --foreground: 0.15 0 0;
+    --card: 1.0 0 0;
+    --card-foreground: 0.15 0 0;
+    --popover: 1.0 0 0;
+    --popover-foreground: 0.15 0 0;
+
+    --primary: 0.35 0 0;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.95 0 0;
+    --secondary-foreground: 0.25 0 0;
+    --muted: 0.95 0 0;
+    --muted-foreground: 0.5 0 0;
+
+    --accent: 0.35 0 0;
+    --accent-foreground: 0.98 0 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.9 0 0;
+    --input: 0.9 0 0;
+    --ring: 0.35 0 0;
+
+    --chart-1: 0.65 0.22 40;
+    --chart-2: 0.6 0.12 185;
+    --chart-3: 0.4 0.07 227;
+    --chart-4: 0.83 0.19 84;
+    --chart-5: 0.77 0.19 70;
+
+    --sidebar: 0.98 0 0;
+    --sidebar-foreground: 0.15 0 0;
+    --sidebar-primary: 0.35 0 0;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.95 0 0;
+    --sidebar-accent-foreground: 0.25 0 0;
+    --sidebar-border: 0.9 0 0;
+    --sidebar-ring: 0.35 0 0;
+  }
+
+  .dark {
+    --background: 0.11 0 0;
+    --foreground: 0.95 0 0;
+    --card: 0.155 0 0;
+    --card-foreground: 0.95 0 0;
+    --popover: 0.195 0 0;
+    --popover-foreground: 0.95 0 0;
+
+    --primary: 0.62 0.22 142.5;
+    --primary-foreground: 0.11 0 0;
+
+    --secondary: 0.24 0.15 240;
+    --secondary-foreground: 0.92 0 0;
+    --muted: 0.24 0 0;
+    --muted-foreground: 0.58 0 0;
+
+    --accent: 0.62 0.22 142.5;
+    --accent-foreground: 0.11 0 0;
+
+    --destructive: 0.58 0.21 17;
+    --destructive-foreground: 0.95 0 0;
+
+    --border: 0.235 0 0;
+    --input: 0.235 0 0;
+    --ring: 0.62 0.22 142.5;
+
+    --chart-1: 0.68 0.2 56;
+    --chart-2: 0.6 0.18 255;
+    --chart-3: 0.68 0.18 137;
+    --chart-4: 0.75 0.22 45;
+    --chart-5: 0.65 0.23 13;
+
+    --sidebar: 0.135 0 0;
+    --sidebar-foreground: 0.95 0 0;
+    --sidebar-primary: 0.62 0.22 142.5;
+    --sidebar-primary-foreground: 0.11 0 0;
+    --sidebar-accent: 0.24 0 0;
+    --sidebar-accent-foreground: 0.92 0 0;
+    --sidebar-border: 0.195 0 0;
+    --sidebar-ring: 0.62 0.22 142.5;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/assets/fonts/JetBrainsMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .shadow-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .shadow-elevated {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .badge-status {
+    @apply inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply badge-status bg-green-600 text-white;
+  }
+
+  .badge-warning {
+    @apply badge-status bg-yellow-600 text-white;
+  }
+
+  .badge-info {
+    @apply badge-status bg-blue-600 text-white;
+  }
+
+  .badge-pending {
+    @apply badge-status bg-orange-600 text-white;
+  }
+
+  .badge-cancel {
+    @apply badge-status bg-red-600 text-white;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.35s ease both;
+  }
+}

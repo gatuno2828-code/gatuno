@@ -1,0 +1,74 @@
+type User = 
+ record {
+   email: text;
+   id: nat;
+   name: text;
+   registrationDate: int;
+   totalRides: nat;
+   totalSpent: float64;
+ };
+type SettingsPublic = 
+ record {
+   acceptTimeoutSeconds: nat;
+   baseFare: float64;
+   cancellationFee: float64;
+   features: Features;
+   minimumFare: float64;
+   perKm: float64;
+   perMinute: float64;
+   searchRadiusKm: float64;
+   serviceFeePercent: float64;
+ };
+type RideStatus = 
+ variant {
+   cancelada;
+   concluida;
+   em_andamento;
+   em_rota;
+   searching;
+ };
+type Ride = 
+ record {
+   clientName: text;
+   destination: text;
+   distanceKm: float64;
+   durationMinutes: float64;
+   fare: float64;
+   id: nat;
+   origin: text;
+   status: RideStatus;
+   timestamp: int;
+ };
+type Features = 
+ record {
+   multipleDestinations: bool;
+   scheduledRides: bool;
+   shareRoute: bool;
+   showPriceBeforeAccept: bool;
+ };
+type DriverPublic = 
+ record {
+   earnings: float64;
+   id: nat;
+   isOnline: bool;
+   name: text;
+   rating: float64;
+   totalRides: nat;
+   vehicle: text;
+ };
+type DashboardStats = 
+ record {
+   onlineDrivers: nat;
+   revenueToday: float64;
+   ridesToday: nat;
+   totalUsers: nat;
+ };
+service : {
+  getDashboardStats: () -> (DashboardStats) query;
+  getDrivers: () -> (vec DriverPublic) query;
+  getRides: () -> (vec Ride) query;
+  getSettings: () -> (SettingsPublic) query;
+  getUsers: () -> (vec User) query;
+  toggleDriverOnline: (id: nat) -> (bool);
+  updateSettings: (update: SettingsPublic) -> ();
+}

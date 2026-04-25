@@ -1,0 +1,24 @@
+{
+  "overview": "Gatuno is a professional admin web panel for a ride-hailing and delivery platform. Built with a dark theme and green accents, it gives administrators full visibility and control over rides, drivers, users, and platform settings in real time.",
+  "features": [
+    "Real-time dashboard with KPI cards and 7-day revenue chart",
+    "Live ride feed with auto-refresh and color-coded status badges",
+    "Rides management with filters (All, In Progress, Completed, Cancelled)",
+    "Drivers list with online/offline toggle and search",
+    "Users list with colored avatars, search, and registration dates",
+    "Settings page for pricing, ride configuration, and feature toggles",
+    "Dark theme with #00C853 green accents and professional styling",
+    "All content in Brazilian Portuguese with realistic mock data"
+  ],
+  "category": "productivity",
+  "tags": [
+    "admin-panel",
+    "rides",
+    "delivery",
+    "real-time",
+    "dashboard",
+    "portuguese",
+    "dark-theme"
+  ],
+  "last_updated": "2026-04-25T03:47:06.241Z"
+}

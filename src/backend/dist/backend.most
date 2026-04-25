@@ -1,0 +1,75 @@
+// Version: 1.0.0
+type Driver__8129368 =
+  {
+    var earnings : Float;
+    id : Nat;
+    var isOnline : Bool;
+    name : Text;
+    rating : Float;
+    totalRides : Nat;
+    vehicle : Text
+  };
+type Features__16775740 =
+  {
+    multipleDestinations : Bool;
+    scheduledRides : Bool;
+    shareRoute : Bool;
+    showPriceBeforeAccept : Bool
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type RideStatus__425941527 =
+  {#cancelada; #concluida; #em_andamento; #em_rota; #searching};
+type Ride__653140925 =
+  {
+    clientName : Text;
+    destination : Text;
+    distanceKm : Float;
+    durationMinutes : Float;
+    fare : Float;
+    id : Nat;
+    origin : Text;
+    status : RideStatus__425941527;
+    timestamp : Int
+  };
+type User__1001603178 =
+  {
+    email : Text;
+    id : Nat;
+    name : Text;
+    registrationDate : Int;
+    totalRides : Nat;
+    totalSpent : Float
+  };
+actor {
+  stable drivers :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Driver__8129368]];
+      var elementIndex : Nat__490723111
+    };
+  stable rides :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Ride__653140925]];
+      var elementIndex : Nat__490723111
+    };
+  stable settings :
+    {
+      var acceptTimeoutSeconds : Nat;
+      var baseFare : Float;
+      var cancellationFee : Float;
+      var features : Features__16775740;
+      var minimumFare : Float;
+      var perKm : Float;
+      var perMinute : Float;
+      var searchRadiusKm : Float;
+      var serviceFeePercent : Float
+    };
+  stable users :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?User__1001603178]];
+      var elementIndex : Nat__490723111
+    }
+};
